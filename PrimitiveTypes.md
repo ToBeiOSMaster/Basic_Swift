@@ -88,3 +88,10 @@ print(message) //yoonyoung is hungry
 ```
 
 ### Counting Characters
+```
+let alphabet = "abcdefg"
+print(alphabet.count) //7
+```
+* 확장된 문자소 클러스터는 여러 개의 유니코드 스칼라로 구성할 수 있다.   
+=> **이것은 다른 문자와 같은 문자의 다른 표기법은 저장할 때 메모리 사용량이 다르게 요구될 수 있다는 의미이다.**  
+이 
