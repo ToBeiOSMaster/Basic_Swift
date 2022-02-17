@@ -27,7 +27,7 @@ let quotation = """
 """
 ```
 
-### Extended String Delimiters
+### 2. Extended String Delimiters
 - 문자를 `#`으로 둘러쌀 경우 특수문자를 출력할 수 있다.
 ```
 let exString1 = "Line1 \n Line2"
@@ -41,23 +41,23 @@ print(exString2)
 //출력 결과: Line1 \n Line2
 ```
 
-### Initializing an Empty String
+### 3. Initializing an Empty String
 방법 1) 빈 문자열 리터럴을 변수에 할당: `var emptyString = ""`
 방법 2) 초기화: `var emptyString = String()`
 => emptyString.isEmpty == true
 
-### ⭐️String Mutability 문자열 변경 가능성
+### 4. String Mutability 문자열 변경 가능성(⭐️)
 특정 String은 변수`var` 또는 상수`let`에 할당되어 변경될 수 있는지 여부를 알 수 있다
 - var: 값 할당 이후 변경 가능. 가장 최근에 할당한 값을 담는다.
 - let: 값 할당 이후 변경 불가능.
 
-### ⭐️String Are Value Types 문자열은 값 타입!
+### 5. String Are Value Types 문자열은 값 타입!(⭐️)
 Swift의 String 타입은 값 타입 (value type)이다.
 새로운 String 값을 생성한다면 String 값은 함수 또는 메서드에 전달될 때나 상수 또는 변수에 대입될 때 **복사**된다. 
 각 경우에 존재하는 String 값의 새로운 복사본이 생성되고 **원본이 아닌 새로운 복사본**은 전달되거나 할당된다.
 > 문자열, 구조체, 열거형은 모두 값타입
 
-### Working with Characters
+### 6. Working with Characters
 #### - for-in 루프
 ```
 for character in "Cat" { print(character) }
@@ -66,7 +66,7 @@ for character in "Cat" { print(character) }
 //t
 ```
 
-### Concaatenating Strings and Characters
+### 7. Concatenating Strings and Characters
 - `+`와 `appnd()`를 통한 문자열 연결
 ```
 let string1 = "hello"
@@ -78,7 +78,7 @@ print(newString) //hello yoonyoung!
 
 ```
 
-### String Interpolation
+### 8. String Interpolation
 - `\()` 추가를 통해 문자열 리터럴에 값이 포함된 포현식을 혼합해 새로운 String값 생성
 ```
 let name = "yoonyoung"
@@ -87,7 +87,7 @@ let message = "\(name) is \(state)"
 print(message) //yoonyoung is hungry
 ```
 
-### Counting Characters
+### 9. Counting Characters
 - `count`
 ```
 let alphabet = "abcdefg"
@@ -100,7 +100,7 @@ print(alphabet.count) //7
 이 때문에 Swift의 문자는 각각 문자열에서 동일한 양의 메모리를 차지하지 않습니다. 그 결과 문자열에 문자의 숫자는 확장된 문자소 클러스터의 경계를 결정하기 위해 그 문자열을 반복하지 않고는 계산할 수 없다. 특히 긴 문자열 값으로 작업하는 경우에 해당 문자열의 문자를 결정하려면 count 프로퍼티가 전체 문자열의 유니코드 스칼라를 반복해야 한다.  
 `count` 프로퍼티로 반환된 문자의 갯수는 같은 문자여도 `NSString`의 `length` 프로퍼티와 항상 같지 않다. `NSString`의 길이는 문자열 내에 유니코드 확장된 문자소 클러스터 수가 아니라 문자열의 UTF-16 표현 내의 16-bit 코드 단위 수를 기반으로 한다.
 
-### Accessing and Modifying a String
+### 10. Accessing and Modifying a String
 ```
 let alphabet = "abcdefg"
 alphabet[alphabet.startIndex] //a
@@ -127,7 +127,7 @@ print("my", "name", "is", "yoonyoung", seperator: "...")
 ///my...name...is...yoonyoung
 ```
 
-### Inserting and Removing
+### 11. Inserting and Removing
 - `insert(_:at:)`와 `insert(contentsOf:at:)`를 이용한 문자열 삽입
 ```
 var welcome = "hello"
