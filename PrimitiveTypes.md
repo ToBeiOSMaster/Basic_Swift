@@ -150,3 +150,5 @@ welcome.remove(at: welcome.index(before: welcome.endIndexx))
 let range = welcome.index(welcome.endIndex, offsetBy: -6)..<welcome.endIndex
 welcome.removeSubrage(range) //hello
 ```
+
++) 윤영첨언📚 [기타 활용하기 좋은 문자열 extension](https://github.com/ToBeiOSMaster/Basic_Swift/blob/main/ExString.swift)
