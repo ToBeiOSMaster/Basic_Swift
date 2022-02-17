@@ -135,6 +135,7 @@ welcome.insert("!", at: welcome.endIndex)
 //hello!
 
 welcome.insert(contentsOf: " there", at: welcome.indeX(before: welcome.endIndex))
+```
 
 - `remove(at:)`와 `removeSubrange(_:)`를 이용한 문자열 삭제
 ```
