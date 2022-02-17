@@ -88,10 +88,59 @@ print(message) //yoonyoung is hungry
 ```
 
 ### Counting Characters
+- `count`
 ```
 let alphabet = "abcdefg"
 print(alphabet.count) //7
 ```
+
+**이해하지 못한 구절 -> 같이 돌려보고 이해해봐요 :)**
 * 확장된 문자소 클러스터는 여러 개의 유니코드 스칼라로 구성할 수 있다.   
 => **이것은 다른 문자와 같은 문자의 다른 표기법은 저장할 때 메모리 사용량이 다르게 요구될 수 있다는 의미이다.**  
-이 
+이 때문에 Swift의 문자는 각각 문자열에서 동일한 양의 메모리를 차지하지 않습니다. 그 결과 문자열에 문자의 숫자는 확장된 문자소 클러스터의 경계를 결정하기 위해 그 문자열을 반복하지 않고는 계산할 수 없다. 특히 긴 문자열 값으로 작업하는 경우에 해당 문자열의 문자를 결정하려면 count 프로퍼티가 전체 문자열의 유니코드 스칼라를 반복해야 한다.  
+`count` 프로퍼티로 반환된 문자의 갯수는 같은 문자여도 `NSString`의 `length` 프로퍼티와 항상 같지 않다. `NSString`의 길이는 문자열 내에 유니코드 확장된 문자소 클러스터 수가 아니라 문자열의 UTF-16 표현 내의 16-bit 코드 단위 수를 기반으로 한다.
+
+### Accessing and Modifying a String
+```
+let alphabet = "abcdefg"
+alphabet[alphabet.startIndex] //a
+alphabet[alphabet.index(after: alphabet.startIndexx)] //b
+alphabet[alphabet.index(before: alphabet.endIndex)] //g
+
+let range = alphabet.index(alphabet.startIndex, offsetBy: 3) 
+alphabet[range] //d
+```
+이외 문자열 범위에 벗어나는 인덱스로 접근하거나 문자열 범위에서 벗어나는 인덱스의 Character를 접근하려고 하면 `런타임에러`가 발생한다
+
+- indices
+```
+for index in alphabet.indices {
+  print("\(alphabet[index]", terminator: " ")
+}
+// a b c d e f g
+```
+- `terminator`: 문자열이 한 줄로 출력되게 도와준다. terminator를 사용하지 않으면 출력 과정에서 줄바꿈이 발생한다.  
++) `seperator`: string을 연결시켜줄 때, 그것들을 특정 문자열을 통해 나누어주는 역할을 수행한다
+
+```
+print("my", "name", "is", "yoonyoung", seperator: "...")
+///my...name...is...yoonyoung
+```
+
+### Inserting and Removing
+- `insert(_:at:)`와 `insert(contentsOf:at:)`를 이용한 문자열 삽입
+```
+var welcome = "hello"
+welcome.insert("!", at: welcome.endIndex)
+//hello!
+
+welcome.insert(contentsOf: " there", at: welcome.indeX(before: welcome.endIndex))
+
+- `remove(at:)`와 `removeSubrange(_:)`를 이용한 문자열 삭제
+```
+welcome.remove(at: welcome.index(before: welcome.endIndexx))
+//하나의 문자열 삭제 //hello there
+
+let range = welcome.index(welcome.endIndex, offsetBy: -6)..<welcome.endIndex
+welcome.removeSubrage(range) //hello
+```
