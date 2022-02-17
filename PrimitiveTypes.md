@@ -58,4 +58,33 @@ Swift의 String 타입은 값 타입 (value type)이다.
 > 문자열, 구조체, 열거형은 모두 값타입
 
 ### Working with Characters
-#### - 무
+#### - for-in 루프
+```
+for character in "Cat" { print(character) }
+//C
+//a
+//t
+```
+
+### Concaatenating Strings and Characters
+- `+`와 `appnd()`를 통한 문자열 연결
+```
+let string1 = "hello"
+let string2 = "yoonyoung"
+let exclamationMark: Character = "!"
+var newString = string1 + string2
+newString.append(exclamationMark)
+print(newString) //hello yoonyoung!
+
+```
+
+### String Interpolation
+- `\()` 추가를 통해 문자열 리터럴에 값이 포함된 포현식을 혼합해 새로운 String값 생성
+```
+let name = "yoonyoung"
+let state = "hungry"
+let message = "\(name) is \(state)"
+print(message) //yoonyoung is hungry
+```
+
+### Counting Characters
