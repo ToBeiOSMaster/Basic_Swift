@@ -56,3 +56,33 @@ reversedNames = names.sorted(by: { $0 > $1 } )
 ```
 
 3) 후행 클로저
+- 함수의 마지막 인자로 함수에 클로저 표현식을 전달해야하고 클로저 표현식이 긴 경우에 용이
+```
+//후행 클로저를 사용하지 않을 경우
+func functionWithClosure2(closure: { })
+
+//후행 클로저를 사용하는 경우 -> 메서드의 소괄호 바깥에 작성 가능
+func functionWithClosure3() { }
+```
+
+## 캡처값(Capturing Values)
+- 클로저는 정의된 둘러싸인 컨텍스트에서 상수와 변수를 캡처할 수 있다
+- **캡처란?** 상수와 변수를 정의한 원래 범위가 더이상 존재하지 않더라도 바디 내에서 해당 상수와 변수의 값을 참조하고 수정할 수 있도록 하는 행위?
+```
+func makeIncrementer(forIncrement amount: Int) -> () -> Int {
+    var runningTotal = 0
+    
+    //incremeter 함수는 파라미터가 없으며 바디 내에 runningTotal과 amount를 참조
+    //둘러싸인 함수에 runningTotal과 amount에 대한 참조를 캡처하고 함수 내에서 사용
+    //참조를 캡처하는 것?: makeIncrementer 호출이 종료될 때 runningTotal과 amount가 사라지지 않고 다음에 incremeter 함수가 호출될 때 runningTotal을 사용할 수 있는 것
+    //incrementBySeven과 incrementByTen은 상수이지만 이러한 상수가 참조하는 클로저는 캡처한 runningTotal 변수를 
+    func incrementer() -> Int {
+        runningTotal += amount
+        return runningTotal
+    }
+    return incrementer
+}
+```
+
+## ⭐️클로저는 참조 타입(Closure Are Reference Types)
+
