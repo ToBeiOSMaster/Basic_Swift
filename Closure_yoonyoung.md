@@ -1,5 +1,3 @@
-정리 업로드에 앞서,,, 시간이 촉박해 이정도밖에 정리 못했네요,,, 주말까지 보완해서 같이 업데이트하겠습니다..!
-
 # Closure
 - 클로저란, 코드에서 주변에 전달과 사용할 수 있는 자체 포함된 기능 블럭
 - 클로저는 정의된 컨텍스트에서 모든 상수와 변수에 대한 참조를 캡처하고 저장할 수 있다. 이러한 상수와 변수를 **closing over(폐쇄)**라고 한다
@@ -75,7 +73,8 @@ func makeIncrementer(forIncrement amount: Int) -> () -> Int {
     //incremeter 함수는 파라미터가 없으며 바디 내에 runningTotal과 amount를 참조
     //둘러싸인 함수에 runningTotal과 amount에 대한 참조를 캡처하고 함수 내에서 사용
     //참조를 캡처하는 것?: makeIncrementer 호출이 종료될 때 runningTotal과 amount가 사라지지 않고 다음에 incremeter 함수가 호출될 때 runningTotal을 사용할 수 있는 것
-    //incrementBySeven과 incrementByTen은 상수이지만 이러한 상수가 참조하는 클로저는 캡처한 runningTotal 변수를 
+    //incrementBySeven과 incrementByTen은 상수이지만 이러한 상수가 참조하는 클로저는 캡처한 runningTotal 변수를 계속 증가시킬 수 있다.
+    //그 이유는 함수와 클로저가 reference types이기 때문!(값타입이었다면 동일한 값을 복사해서 사용하는 개념이므로, 원하는 변수의 값을 증가시킬 수 없을 것)
     func incrementer() -> Int {
         runningTotal += amount
         return runningTotal
@@ -85,4 +84,20 @@ func makeIncrementer(forIncrement amount: Int) -> () -> Int {
 ```
 
 ## ⭐️클로저는 참조 타입(Closure Are Reference Types)
+함수 또는 클로저를 상수 또는 변수에 할당할 때마다 실제로 **상수 또는 변수를 함수 또는 클로저에 대한 참조로 설정**한다.
+
+## Escaping Closures
+- **@escaping**이란, 클로저를 파라미터로 가지는 함수를 선언할 때 이 클로저는 탈출을 허락한다는 뜻
+
+### 클로저가 탈출할 수 있는 방법
+1) 함수 바깥에 정의된 변수에 저장되는 것  
+ex) 비동기 작업을 시작하는 대부분의 함수는 완료 핸들러로 클로저 사용
+```
+var completionHandlers: [() -> Void] = []
+func someFunctionWithEscapingClosure(completionHandler: @escaping () -> Void) {
+    completionHandlers.append(completionHandler)
+}
+```
+
+* self를 참조하는 
 
