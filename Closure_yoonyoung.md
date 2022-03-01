@@ -99,5 +99,23 @@ func someFunctionWithEscapingClosure(completionHandler: @escaping () -> Void) {
 }
 ```
 
-* self를 참조하는 
+* self를 참조하는 escape closure는 self가 클래스의 인스턴스를 참조하는 경우, escape closure에 self 캡처는 강한 참조 사이클이 생기기 쉽기 떄문에 주의해서 사용해야 한다
+> 일반적으로 클로저는 클로저 내부에서 변수를 사용하여 암시적으로 변수를 캡처하지만 이 경우에는 명시적이어야 한다.   
+self 를 캡처하려면 사용할 때 **명시적으로 self 를 작성하거나 클로저의 캡처 목록에 self 를 포함**합니다.   
+self 를 명시적으로 작성하는데 의도를 표현하고 참조 사이클이 없음을 확인하도록 상기시켜 줘야 한다
+
+```
+func someFunctionWithNonescapingClosure(closure: () -> Void) {
+    closure()
+}
+
+class SomeClass {
+    var x = 10
+    func doSomething() {
+        someFunctionWithEscapingClosure { self.x = 100 } //명시적으로 self를 작성
+        someFunctionWithNonescapingClosure { x = 200 } //암시적으로 self 참조
+    }
+}
+```
+
 
