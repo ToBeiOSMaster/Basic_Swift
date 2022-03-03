@@ -12,3 +12,4 @@ Swift 5.6 에 대한 내용 업데이트 및 공부 목적의 repo
 | [Closure](./Clousre_yeonhee.md)| 220224 | 조연희|
 | [Closure](./Closure_yoonyoung.md) + [Closure Ex](./Closure_yoonyoung.playground/Contents.swift)| 220301 | 조윤영 |
 | [Closure](./Clousre_yeonhee.md)|220301|조연희|
+| [Functional Programming](./FunctionalProgramming_yoonyoung.md)|220303|조윤영|
