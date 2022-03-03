@@ -9,7 +9,7 @@
 
 ### Clousre의 종류
 
-![image-20220224135204909](/Users/yeoni/Library/Application Support/typora-user-images/image-20220224135204909.png)
+![image-20220224135204909](./closure/1.png)
 
 * Named Closure와 Unnamed Clousred로 나뉜다
 * 함수는 Named Closure의 한 종류
@@ -41,7 +41,7 @@ let closure = { print("Somaker") }
 
 ### 전달인자로 함수를 보낸다?
 
-![image-20220224141342705](/Users/yeoni/Library/Application Support/typora-user-images/image-20220224141342705.png)
+![image-20220224141342705](./closure/2.png)
 
 * Sorted 메소드는 배열의 타입과 같은 두 개의 매개변수를 가지며 Bool타입을 반환하는 클로저를 전달 인자로 받을 수 있다.
 
