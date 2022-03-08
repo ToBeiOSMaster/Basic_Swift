@@ -82,3 +82,6 @@ _ = downloadJson(MEMBER_LIST_URL) .subscribe { event in // 클로저 범위는 �
   } 
 }
 ```
+
++) RxSwift 개념 정리 내용: https://github.com/Choyoonyoung98/MasteringRxSwift_Study
++) 공부했던 RxSwift 예제: https://github.com/Choyoonyoung98/RxSwift_Ex
