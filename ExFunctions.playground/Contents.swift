@@ -1,24 +1,16 @@
 import UIKit
 import Foundation
 
-let numbers: [Int] = [0, 1, 2, 3, 4,]
+let x = 2
 
-var doubledNumbers: [Int] = [Int]()
-var strings: [String] = [String]()
-
-for number in numbers{
-    doubledNumbers.append(number*2)
-    strings.append("\(number)")
+func x1(a: Int) -> Int {
+    return a+1
 }
 
-print(doubledNumbers)
-print(strings)
+func x2(a: Int) -> Int {
+    return a*2
+}
 
-doubledNumbers = numbers.map({(number: Int) -> Int in
-    return number*2
-})
+let y = 2
 
-strings = numbers.map({ "\($0)"})
-print(strings)
 
-doubledNumbers.red
