@@ -164,7 +164,9 @@ if let requestError = result.error as? RequestError {
 
 ### 4) Interface Segregation Principle
 클라이언트별 세분화된 인터페이스
--> 예시는 
+
 
 ### 5) Dependency Inversion Principle
+구체화가 아닌 추상화에 의존
 
+-> -> 예시는 더 생각해볼게요!!
