@@ -163,6 +163,8 @@ if let requestError = result.error as? RequestError {
 ```
 
 ### 4) Interface Segregation Principle
+클라이언트별 세분화된 인터페이스
+-> 예시는 
 
 ### 5) Dependency Inversion Principle
 
