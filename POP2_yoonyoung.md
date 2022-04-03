@@ -60,4 +60,21 @@ protocol SomeClassOnlyProtocol: AnyObject, SomeInheritedProtocol {
 ```
 
 ### Optional Protocol Requirements
-프로토콜에 대해 optional requirements을 정의할 수 있다. 이 
+프로토콜에 대해 optional requirements을 정의할 수 있다. **이 요구사항은 프로토콜을 준수하는 타입으로 구현될 필요가 없다**   
+- 옵셔널 요구사항은 프로토콜의 정의의 부분으로 `optional` 수식어를 앞에 붙인다
+- 옵셔널 요구사항은 Objective-C와 상호운용되는 코드를 작성할 수 있다
+
+### Providing Default Implementations
+**해당 프로토콜의 모든 메서드 또는 계산된 프로퍼티 요구사항에 기본 구현을 위해 프로토콜 확장을 사용할 수 있다.**  
+준수하는 타입이 필수 메서드 또는 프로퍼티 자체 구현을 제공하먄 해당 구현은 확장에 의해 제공되는 구현 대신 사용된다
+
+> 확장에 의해 제공된 기본 구현을 가진 프로토콜 요구사항은 옵셔널 프로토콜 요구사항과 다르다.  
+> 준수하는 타입이 자체 구현을 제공할 필요는 없지만 기본 구현을 가진 요구사항은 옵셔널 체이닝 없이 호출 가능  
+
+```
+extension PrettyTextRepresentable  {
+    var prettyTextualDescription: String {
+        return textualDescription
+    }
+}
+```
