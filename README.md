@@ -24,7 +24,7 @@ Swift 5.6 에 대한 내용 업데이트 및 공부 목적의 repo
 | [Protocol-oriented Programming_ver2](./POP_yeoni.swift) |220328| 조연희 |
 | [Extensions](./Extension_yoonyoung.md) |220328|조윤영|
 | [Extensions](./extension_yeoni.md) |220331|조연희|
-| [Generics](./Generics_yoonyoung.md) |220404| 조윤영|
+| [Generics](./Generics_yoonyoung.md) |220404, 220407(보충)| 조윤영|
 | [Error Handling]() |||
 | [Memory]() |||
 | [Access Control]() |||
